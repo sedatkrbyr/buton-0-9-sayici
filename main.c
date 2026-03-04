@@ -109,13 +109,13 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  HAL_GPIO_WritePin(trs_led_GPIO_Port, trs_led_Pin, SET);
-  HAL_GPIO_WritePin(trs_7seg_GPIO_Port, trs_7seg_Pin, RESET);
+  HAL_GPIO_WritePin(trs_led_GPIO_Port, trs_led_Pin, RESET);
+  HAL_GPIO_WritePin(trs_7seg_GPIO_Port, trs_7seg_Pin, SET);
   int sayac=0;
-  int ilk_durum=1;
-  int ilk_durum2 = 1;
-  int son_durum2;
-  int son_durum;
+  int ilk=1;
+  int ilk_2 = 1;
+  int son_2;
+  int son;
   while (1)
   {
     /* USER CODE END WHILE */
@@ -123,13 +123,13 @@ int main(void)
     /* USER CODE BEGIN 3 */
       ekran(sayac);
       int son_durum = HAL_GPIO_ReadPin(btn1_GPIO_Port, btn1_Pin);
-      if(ilk_durum==0 && son_durum==1){
+      if(ilk==0 && son==1){
         sayac = (sayac + 1) % 10;
         ekran(sayac);
           }
       ilk_durum = son_durum;
       int son_durum2 = HAL_GPIO_ReadPin(btn2_GPIO_Port, btn2_Pin);
-      if(ilk_durum2 == 0 && son_durum2 == 1){
+      if(ilk_2 == 0 && son_2 == 1){
           sayac = (sayac + 9) % 10;
           ekran(sayac);
       }
@@ -213,3 +213,4 @@ void assert_failed(uint8_t *file, uint32_t line)
 {
 }
 #endif /* USE_FULL_ASSERT */
+
